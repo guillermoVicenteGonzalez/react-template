@@ -1,0 +1,41 @@
+{
+	"compilerOptions": {
+		"plugins": [
+			{
+				"name": "typescript-plugin-css-modules"
+			}
+		],
+		"target": "ES2022",
+		"useDefineForClassFields": true,
+		"lib": ["ES2023", "DOM", "DOM.Iterable"],
+		"allowJs": false,
+		"module": "ESNext",
+		"skipLibCheck": true,
+		"forceConsistentCasingInFileNames": true,
+		"baseUrl": ".",
+		"paths": {
+			"@/*": ["./src/modules/*"]
+		},
+
+		/* Bundler mode */
+		"moduleResolution": "bundler",
+		"allowImportingTsExtensions": true,
+		"isolatedModules": true,
+		"moduleDetection": "force",
+		"noEmit": true,
+		"jsx": "preserve",
+		"resolveJsonModule": true,
+		"incremental": true,
+
+		/* Linting */
+		"strict": true,
+		"alwaysStrict": true,
+		"noImplicitAny": true,
+		"strictNullChecks": true,
+		"noUnusedLocals": true,
+		"noUnusedParameters": true,
+		"noFallthroughCasesInSwitch": true
+	},
+	"include": ["src", "vite.config.ts", "**/*.ts", "**/*.tsx", "**/*.d.ts"],
+	"exclude": ["./.blueprints/*", "**/.blueprints/", "node_modules"]
+}

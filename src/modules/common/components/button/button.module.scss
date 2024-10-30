@@ -1,0 +1,11 @@
+.container {
+	background-color: blue;
+	width: 10rem;
+	height: 4.5rem;
+
+	&__test {
+		background-color: red;
+		width: 50%;
+		height: 50%;
+	}
+}
