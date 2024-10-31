@@ -1,0 +1,10 @@
+name: app
+
+services:
+  front-dev:
+    build:
+      context: ../
+      dockerfile: docker/Dockerfile
+    container_name: react-app
+    ports:
+      - 5173:5173

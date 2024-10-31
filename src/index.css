@@ -44,3 +44,9 @@ body {
 		background-color: #ffffff;
 	}
 }
+
+/*React resets*/
+#root {
+	max-width: 100vw;
+	min-height: 100vh;
+}

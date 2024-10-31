@@ -10,7 +10,7 @@
 	"editor.formatOnSave": true,
 	"editor.codeActionsOnSave": {
 		"source.addMissingImports.ts": "always",
-		"source.removeUnused.ts": "always",
+		"source.removeUnused.ts": "never",
 		"source.organizeImports": "always",
 		"source.removeUnusedImports": "always",
 		"source.sortImports": "always",

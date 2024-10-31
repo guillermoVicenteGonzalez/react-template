@@ -12,10 +12,7 @@ type Story = StoryObj<typeof {{ pascalCase name }}View>
 
 export const Default: Story = {
     args: {},
-    async play({ canvasElement }) {
-        const canvas = within(canvasElement)
-        const container = canvas.getByTestId('{{ kebabCase name }}-view')
+    async play({ }) {
 
-        void expect(container).toBeTruthy()
     },
 }

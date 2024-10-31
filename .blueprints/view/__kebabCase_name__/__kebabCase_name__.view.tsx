@@ -1,13 +1,13 @@
-import { pascalCase } from '../../component/__kebabCase_name__/__kebabCase_name__.component'
+import React from 'react'
+import styles from './{{ kebabCase name }}.module.css'
 
 interface {{pascalCase name}}ViewProps  {
     // query parameters
-    searchParams: { [key: string]: string | string[] | undefined }
+    searchParams?: { [key: string]: string | string[] | undefined }
     // url parameters
-    params: { [key: string]: string | undefined }
+    params?: { [key: string]: string | undefined }
 }
 
-export const {{pascalCase name}}View :React.FC<{{pascalCase name}}Props> = ({}) => {
+export const {{pascalCase name}}View:React.FC<{{pascalCase name}}ViewProps> = ({...props}) =>{
     return <div data-testid="{{ kebabCase name }}-view" className={styles.container}></div>
 }
-

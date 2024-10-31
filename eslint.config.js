@@ -10,6 +10,7 @@ import tseslint from "typescript-eslint";
 export default tseslint.config(
 	{ ignores: ["dist"] },
 	{
+		settings: { react: { version: 18.3 } },
 		plugins: {
 			prettier,
 			react: pluginReact,
@@ -20,7 +21,7 @@ export default tseslint.config(
 		extends: [
 			// eslintPrettier,
 			js.configs.recommended,
-			...tseslint.configs.recommended,
+			...tseslint.configs.recommendedTypeChecked,
 			prettier,
 			cssModulesPlugin.configs.recommended,
 		],
@@ -29,6 +30,10 @@ export default tseslint.config(
 		languageOptions: {
 			ecmaVersion: 2020,
 			globals: globals.browser,
+			parserOptions: {
+				project: ["./tsconfig.app.json"],
+				tsconfigRootDir: import.meta.dirname,
+			},
 		},
 
 		rules: {
@@ -89,6 +94,9 @@ export default tseslint.config(
 			"@typescript-eslint/no-empty-object-type": "off",
 			"@typescript-eslint/unbound-method": "off",
 			"@typescript-eslint/require-await": "off",
+
+			//css modules
+			"css-modules/no-unused-class": "off", //si usamos BEM salta siempre
 		},
 	}
 );

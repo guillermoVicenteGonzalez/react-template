@@ -1,0 +1,85 @@
+$react-logo-color: #00d8ff;
+$uxcale-logo-color: #1e294b;
+
+.welcome-view {
+	display: flex;
+	flex-direction: column;
+	height: 100vh;
+	justify-content: center;
+	align-items: center;
+	padding: 20vh;
+
+	&__icons {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+
+		.icon {
+			height: 16em;
+			padding: 1.5em;
+			will-change: filter;
+			transition: all ease-in-out 150ms;
+
+			&:hover {
+				transform: scale(1.1);
+			}
+		}
+
+		.react-icon {
+			animation: infinite infinite-spin 20s linear;
+
+			&:hover {
+				filter: drop-shadow(0 0 2em rgba($react-logo-color, 0.2));
+			}
+		}
+
+		.uxcale-icon {
+			&:hover {
+				filter: drop-shadow(0 0 2em rgba($uxcale-logo-color, 0.2));
+			}
+		}
+	}
+
+	&__title {
+		font-size: 4rem;
+		display: inline-block;
+		background-image: linear-gradient(
+			to right,
+			$uxcale-logo-color,
+			$react-logo-color
+		);
+		background-clip: text;
+		color: transparent;
+		margin-bottom: 5rem;
+	}
+
+	&__summary {
+		max-width: 50%;
+		&__title {
+			font-size: 3.5rem;
+			text-align: center;
+		}
+
+		&__subtitle {
+			text-align: center;
+			font-size: 2rem;
+			text-decoration: underline;
+		}
+
+		&__paragraph {
+			margin-top: 2rem;
+			text-align: center;
+			font-size: 1.6rem;
+		}
+	}
+}
+
+@keyframes infinite-spin {
+	0% {
+		transform: rotate(0deg);
+	}
+
+	100% {
+		transform: rotate(360deg);
+	}
+}

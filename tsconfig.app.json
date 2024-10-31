@@ -14,7 +14,7 @@
 		"forceConsistentCasingInFileNames": true,
 		"baseUrl": ".",
 		"paths": {
-			"@/*": ["./src/modules/*"]
+			"@/*": ["./src/*"]
 		},
 
 		/* Bundler mode */

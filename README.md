@@ -1,41 +1,12 @@
 # React + TypeScript + Vite
 
-## Todos
+## Arquitectura: "Screaming Architecture"
 
-- [x] Estructura de directorios
-- [ ] Blueprints
-  - [x] Components
-  - [ ] Layouts
-  - [ ] Views
-  - [ ] Widgets
-  - [ ] Services ?
-  - [ ] Hooks ?
-  - [ ] Stores ?
-- [x] Eslint + prettier
-- [x] tsconfig
-  - [x] Absolute imports
-- [x] Router
-- [x] Redux => zustand
-- [x] Storybook
-- [x] vscode configs
-- [ ] Docker
-- [ ] Husky + conventional commits
-- [ ] ficheros .env
-- [ ] Readme
-- [x] Base css
-- [ ] Other modules
-  <!-- - [ ] Tailwind ? -->
-  - [x] Scss
-  - [x] Axios
-  - [ ] CVA
+El patrón "Screaming architecture" tiene como premisa principal conseguir que sea la propia arquitectura la que describa el mismo en lugar de describir el framework o herramienta utilizado. En el caso de react, un enfoque más tradicional organizaría los directorios en "components", "views", "hooks".
 
-### Estructura de directorios: "Screaming Architecture"
+El patrón que se propone es híbrido, la estructura de directorios de primer nivel seguirá lo propuesto por "Screaming architecture" organizando los subniveles según el área del sistema al que afecten, por ejemplo, en una aplicación de tienda online, el primer nivel podría ser "login", "chart",... de manera que login encapsule el código que ÚNICAMENTE tiene que ver con el proceso de login, etc. Se utilizará el directorio "common" para almacenar código de funcionalidad más general o que abarca más áreas.
 
-El patrón "Screaming architecture" tiene como premisa principal conseguir que sea la propia arquitectura la que describa el mismo en lugar de describir el framework o herramienta utilizado. En el caso de react, un enfoque mas tradicional organizaría los directorios en "components", "views", "hooks".
-
-El patrón que se propone es hibrido, la estructura de directorios de primer nivel seguira lo propuesto por "Screaming architecture" organizando los subniveles según el area del sistema al que afecten, por ejemplo, en una aplicacion de tienda online, el primer nivel podria ser "login", "chart",... de manera que login encapsule el codigo que UNICAMENTE tiene que ver con el proceso de login, etc. Se utilizará el directorio "common" para almacenar codigo de funcionalidad mas general o que abarca más areas.
-
-Los subniveles inferiores seguiran un patrón mas tradicional organizando los directorios por "tipo de codigo". El resultado es el siguiente
+Los subniveles inferiores seguirán un patrón más tradicional, organizando los directorios por "tipo de código". El resultado es el siguiente
 
 - src
 
@@ -55,55 +26,50 @@ Los subniveles inferiores seguiran un patrón mas tradicional organizando los di
       - components
         ...
 
-### Tipos de componente
+## Uso del repositorio y recomendaciones
 
 ### Blueprints
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+El arquetipo está sigue lo propuesto por "screaming architecture" pero toma ciertos conceptos de otros modelos como atomic design. Teniendo esto en cuenta, diferenciaremos los componentes de react en componentes, widgets, layouts y vistas, siendo los componentes los "átomos" y el resto de estructuras "Moléculas" cada vez más complejas.
 
-Currently, two official plugins are available:
+Si se usa vscode, se ha incluido en la sección de extensiones recomendadas "teamchilla blueprints", que permite crear componente (o widgets, views etc) de manera automatizada y asegurando que se siguen todos los principios de diseño y buenas prácticas de código establecidos.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Para crear un componente basado en una blueprint, una vez instalada la extensión simplemente hay que hacer click derecho y seleccionar la opción "new file from blueprint". Esto creará un nuevo directorio con los siguientes ficheros fuente:
 
-## Expanding the ESLint configuration
+- `componente.tipo.tsx`: El fichero fuente principal del componente
+- `componente.module.scss`: El fichero de estilos del componente. Se puede cambiar a css normal si se desea.
+- `index.ts`: un simple fichero que facilita la exportación del componente
+- `componente.stories.tsx`: El fichero necesario para que nuestro componente sea visible a través de storybook.
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+Se puede modificar la estructura del componente creado si así se desea, pero es recomendable no hacerlo para seguir un estilo consistente en el proyecto.
 
-- Configure the top-level `parserOptions` property like this:
+#### Ficheros
 
-```js
-export default tseslint.config({
-	languageOptions: {
-		// other options...
-		parserOptions: {
-			project: ["./tsconfig.node.json", "./tsconfig.app.json"],
-			tsconfigRootDir: import.meta.dirname,
-		},
-	},
-});
-```
+- `.blueprints/*`: cada directorio incluido compone una blueprint
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+## Modulos y dependencias
 
-```js
-// eslint.config.js
-import react from "eslint-plugin-react";
+### Eslint + Prettier
 
-export default tseslint.config({
-	// Set the react version
-	settings: { react: { version: "18.3" } },
-	plugins: {
-		// Add the react plugin
-		react,
-	},
-	rules: {
-		// other rules...
-		// Enable its recommended rules
-		...react.configs.recommended.rules,
-		...react.configs["jsx-runtime"].rules,
-	},
-});
-```
+Se ha configurado tanto Eslint como prettier para el formateo del codigo y la deteccion de errores. Algunas reglas de Prettier pueden colisionar con Eslint (tamaño de espaciados...). Para evitar que esto ocurra, se han definido las responsabilidades de cada uno, siendo Prettier el encargado unicamente del formateo de texto y Eslint de la deteccion y correccion de errores.
+Tambien se ha proporcionado un fichero de preferencias de vscode local configurado de manera que cada vez que se guarde un fichero se ejecuten tanto eslint como prettier.
+
+En cuanto a las reglas utilizadas, se ha extendido de recommended y se han instalado plugins adicionales para typescript, react y cssmodules (y se extiende de la configuracdión recomendada).
+
+Se han configurado manualmente tanto reglas adicionales no incluidas en las recomendadas como reglas SI incluidas en las recomendadas pero que combiene tener a mano para reconfigurar rapidamente en caso de ser necesario.
+
+La configuración de Eslint no es definitiva. Es necesario probarla y ver que obstaculos implica y que casos no contempla para refinarla poco a poco
+
+### Zustand
+
+### Axios
+
+### React router
+
+#### Ficheros
+
+- `eslint.config.js`: Fichero de configuración de Eslint.
+- `.prettierrc.json`: Fichero de configuración de prettier
+- `.vscode/settings.json`: Fichero de preferencias de vscode configurado para automatizar la ejecución de prettier + eslint
+
+## Recomendaciones
