@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import styles from "./welcome.module.scss";
 
 interface WelcomeViewProps {
@@ -9,8 +9,6 @@ interface WelcomeViewProps {
 }
 
 export const WelcomeView: React.FC<WelcomeViewProps> = () => {
-	const [test, setTest] = useState();
-
 	return (
 		<div className={styles["welcome-view"]} data-testid='welcome-view'>
 			<header className={styles["welcome-view__icons"]}>
