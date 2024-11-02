@@ -1,5 +1,5 @@
 $react-logo-color: #00d8ff;
-$uxcale-logo-color: #1e294b;
+$color-primary: #1e294b;
 
 .welcome-view {
 	display: flex;
@@ -32,12 +32,6 @@ $uxcale-logo-color: #1e294b;
 				filter: drop-shadow(0 0 2em rgba($react-logo-color, 0.2));
 			}
 		}
-
-		.uxcale-icon {
-			&:hover {
-				filter: drop-shadow(0 0 2em rgba($uxcale-logo-color, 0.2));
-			}
-		}
 	}
 
 	&__title {
@@ -45,7 +39,7 @@ $uxcale-logo-color: #1e294b;
 		display: inline-block;
 		background-image: linear-gradient(
 			to right,
-			$uxcale-logo-color,
+			$color-primary,
 			$react-logo-color
 		);
 		background-clip: text;

@@ -15,14 +15,6 @@ export const WelcomeView: React.FC<WelcomeViewProps> = () => {
 		<div className={styles["welcome-view"]} data-testid='welcome-view'>
 			<header className={styles["welcome-view__icons"]}>
 				<a
-					className={styles["uxcale-icon"]}
-					href='https://www.uxcale.com/'
-					target='_blank'
-				>
-					<img alt='Axpe' className={styles.icon} src='/assets/uxcale.svg' />
-				</a>
-
-				<a
 					className={styles["react-icon"]}
 					href='https://www.react.dev'
 					target='_blank'
@@ -32,25 +24,26 @@ export const WelcomeView: React.FC<WelcomeViewProps> = () => {
 			</header>
 
 			<section className={styles["welcome-view__title"]}>
-				<h1>uXcale React template</h1>
+				<h1>React template</h1>
 			</section>
 
 			<section className={styles["welcome-view__summary"]}>
-				<h1 className={styles["welcome-view__summary__title"]}>
-					Bienvenidos a uXcale React.js
-				</h1>
-
 				<h2 className={styles["welcome-view__summary__subtitle"]}>
-					Este es el arquetipo de uxcale basado en React + Vite.
+					This is a React boilerplate using vite + SWC as a bundles
 				</h2>
 
 				<p className={styles["welcome-view__summary__paragraph"]}>
-					Consulta el Readme.md del repositorio para saber más sobre las
-					Características del arquetipo y procura seguir las reglas
-					especificadas para aprovechar al máximo sus capacidades
+					Consult the Readme.md found in this template's{" "}
+					<a
+						href='https://github.com/guillermoVicenteGonzalez/react-template'
+						target='_blank'
+					>
+						repository
+					</a>{" "}
+					to know more about thistemplate's characteristics as well as some tips
+					about its recommended usage. Delete this module found under
+					/src/modules/common/view/welcome to get started building your app
 				</p>
-
-				<h1>Buenas tardes</h1>
 			</section>
 		</div>
 	);
