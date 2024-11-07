@@ -8,9 +8,9 @@ import globals from "globals";
 import tseslint from "typescript-eslint";
 
 export default tseslint.config(
-	{ ignores: ["dist"] },
+	{ ignores: ["dist", ".blueprints", ".storybook"] },
 	{
-		settings: { react: { version: 18.3 } },
+		settings: { react: { version: "18.3" } },
 		plugins: {
 			prettier,
 			react: pluginReact,

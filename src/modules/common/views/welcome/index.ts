@@ -1,1 +1,1 @@
-export * from './welcome.view'
+export * from "./welcome.view";
