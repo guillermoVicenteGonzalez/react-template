@@ -4,6 +4,14 @@ WORKDIR /app
 COPY package*.json ./
 RUN npm i
 
+#only for local development
+FROM deps AS dev
+COPY --from=deps /app/node_modules ./node_modules
+COPY . .
+ENV PORT=5174
+EXPOSE 5174
+CMD ["npm","run","dev"]
+
 
 FROM deps AS prod-builder
 COPY --from=deps /app/node_modules ./node_modules

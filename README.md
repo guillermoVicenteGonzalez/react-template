@@ -1,5 +1,11 @@
 # React + TypeScript + Vite
 
+## Launch docker
+
+`docker compose --profile production up` - To build docker for production
+
+`docker compose --profile dev watch` - To build docker for development
+
 ## Arquitectura: "Screaming Architecture"
 
 El patrón "Screaming architecture" tiene como premisa principal conseguir que sea la propia arquitectura la que describa el mismo en lugar de describir el framework o herramienta utilizado. En el caso de react, un enfoque más tradicional organizaría los directorios en "components", "views", "hooks".
