@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 
-echo -e "\033[31;1;4m>>> Cehcking commit message\033[0m"
+echo -e "\033[31;1;4m>>> Checking commit message\033[0m"
 npm run --silent lint -- --fix $1
 npx commitlint --edit $1
 echo -e "\033[31;1;4m>>> Correct commit format\033[0m"

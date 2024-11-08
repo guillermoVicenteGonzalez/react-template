@@ -4,11 +4,22 @@ import * as cssModulesPlugin from "eslint-plugin-css-modules";
 import pluginReact from "eslint-plugin-react";
 import reactHooks from "eslint-plugin-react-hooks";
 import reactRefresh from "eslint-plugin-react-refresh";
+import pluginStorybook from "eslint-plugin-storybook";
 import globals from "globals";
 import tseslint from "typescript-eslint";
 
 export default tseslint.config(
 	{ ignores: ["dist", ".blueprints", ".storybook"] },
+	...pluginStorybook.configs["flat/recommended"],
+	{
+		files: ["**/*.stories.@(ts|tsx|js|jsx|mjs|cjs)"],
+		rules: {
+			// example of overriding a rule
+			"storybook/hierarchy-separator": "error",
+			// example of disabling a rule
+			"storybook/default-exports": "off",
+		},
+	},
 	{
 		settings: { react: { version: "18.3" } },
 		plugins: {
