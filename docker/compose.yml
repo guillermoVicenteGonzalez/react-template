@@ -13,6 +13,7 @@ services:
 
   front-dev:
     build:
+      target: dev
       context: ../
       dockerfile: docker/Dockerfile
     develop:
@@ -21,7 +22,7 @@ services:
         - path: ./src
           target: /app/src
           action: sync
-    container_name: react-app
+    container_name: react-app-dev
     ports:
       - 5173:5173
     profiles: [dev, front-dev]
