@@ -19,7 +19,7 @@ services:
     develop:
       target: dev
       watch:
-        - path: ./src
+        - path: ../src
           target: /app/src
           action: sync
     container_name: react-app-dev
