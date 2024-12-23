@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react'
 // import { expect } from '@storybook/jest'
 // import { within } from '@storybook/testing-library'
-import { {{ pascalCase name }} } from './{{ kebabCase name }}'
+import { {{ pascalCase name }} } from './{{ kebabCase name }}.component'
 
 const meta: Meta<typeof {{ pascalCase name }}> = {
     title: '{{ pascalCase name }}',
